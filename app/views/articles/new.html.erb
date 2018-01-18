@@ -2,18 +2,10 @@
 
 <%= form_for @article do |f| %>
 
-  <%= f.label :title %>
-  <br />
-  <%= f.text_field :title %>
+  <%= render 'shared/errors', :object => f.object %>
 
-  <br />
+  <%= render 'article_fields', :f => f %>
 
-  <%= f.label :description %>
-  <br />
-  <%= f.text_area :description %>
-
-  <br />
-
-  <%= f.submit %>
+  <%= f.submit "Submit this Article" %>
 
 <% end %>
