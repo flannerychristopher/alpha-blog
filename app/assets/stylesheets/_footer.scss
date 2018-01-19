@@ -1,0 +1,24 @@
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid $light-grey;
+  color: $off-white;
+  background: $light-grey;
+  border-radius: 3px;
+  padding: 5px;
+  a {
+    color: $medium-grey;
+    &:hover {
+      text-decoration: none;
+      color: $bright-white;
+    }
+  }
+  ul {
+    float: right;
+    list-style: none;
+    li {
+      float: left;
+      margin-left: 15px;
+    }
+  }
+}

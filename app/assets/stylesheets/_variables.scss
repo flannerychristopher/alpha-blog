@@ -1,0 +1,32 @@
+$brand: #35bfff;
+
+$light-grey:  #dadada;
+$medium-grey: #8a8a8a;
+$bright-white:  #fff;
+$off-white: #f7f7f7;
+
+
+// BOOTSTRAP DEFAULTS
+
+$navbar-default-bg: $brand;
+$btn-primary-bg: $brand;
+
+
+.center {
+  text-align: center;
+}
+
+.jumbotron {
+  background-image: asset-url('jumbotron-bg.jpg');
+  background-size: cover;
+  height: 550px;
+  color: $off-white !important;
+  text-shadow: 1px 1px $medium-grey;
+  h1 {
+    letter-spacing: 3px;
+    font-weight: 800;
+  }
+  button {
+    color: $brand;
+  }
+}

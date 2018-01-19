@@ -1,0 +1,11 @@
+#logo {
+  float: left;
+  font-size: 1.7em;
+  color: $off-white;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-weight: bold;
+  &:hover {
+    color: $medium-grey;
+  }
+}
