@@ -1,16 +1,5 @@
-<h1>
+<h1 align='center'>
   Edit Article #<%= @article.id %>
 </h1>
 
-<%= form_for @article do |f| %>
-
-  <%= render 'shared/errors', :object => f.object %>
-
-  <%= render 'article_fields', :f => f %>
-
-  <%= f.submit 'Submit Changes' %>
-
-<% end %>
-
-<%= link_to 'Cancel Edit', article_path(@article) %>
-- <%= link_to 'See All Articles', articles_path %>
+<%= render 'form', submit_text: 'Update' %>
