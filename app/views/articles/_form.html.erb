@@ -25,16 +25,16 @@
 
         <div class='form-group'>
           <div class='col-sm-offset-2 col col-sm-10'>
-            <%= f.submit submit_text, class: 'btn btn-primary btn-lg' %>
+            <%= f.submit submit_text, class: 'btn btn-lg btn-success' %>
+            <%= link_to "Cancel #{submit_text}", 
+                        articles_path, align: 'center',
+                        class: 'btn btn-lg btn-danger' %>
           </div>
         </div>
 
       </div>
 
     <% end %>
-
-
-      <%= link_to "Cancel #{submit_text.downcase} and view all articles.", articles_path, align: 'center' %>
 
   </div>
 </div>
