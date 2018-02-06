@@ -1,5 +1,10 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:edit, :update]
+  before_action :set_user, only: [:edit, :update, :show]
+
+  def index
+    @users = User.all
+  end
+  
   def new
     @user = User.new
   end
@@ -15,7 +20,6 @@ class UsersController < ApplicationController
   end
 
   def edit
-
   end
 
   def update
@@ -26,6 +30,9 @@ class UsersController < ApplicationController
       render :edit
 
     end
+  end
+
+  def show
   end
 
   private
