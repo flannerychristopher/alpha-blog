@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
   include ApplicationHelper
 
-  before_action :set_user, only: [:edit, :update, :show]
-  before_action :require_same_user, only: [:edit, :update]
+  before_action :set_user,          only: [:edit, :update, :show, :destroy]
+  before_action :require_same_user, only: [:edit, :update, :destroy]
+  before_action :require_admin,     only: [:destroy]
 
   def index
     @users = User.all
@@ -15,8 +16,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      session[:user_id] = @user.id
       flash[:success] = 'Welcome to the Alpha Blog!'
-      redirect_to articles_path
+      redirect_to user_path @user
     else
       render :new
     end
@@ -31,12 +33,17 @@ class UsersController < ApplicationController
       redirect_to articles_path
     else
       render :edit
-      
     end
   end
   
   def show
     @user_articles = @user.articles.paginate(page: params[:page], per_page: 5)
+  end
+  
+  def destroy
+    @user.destroy
+    flash[:danger] = "User and corresponding articles deleted"
+    redirect_to users_path
   end
 
   private
@@ -50,8 +57,15 @@ class UsersController < ApplicationController
     end
 
     def require_same_user
-      unless current_user == @user
+      unless current_user == @user or current_user.admin?
         flash[:danger] = 'You can only edit your own profile'
+        redirect_to root_path
+      end
+    end
+
+    def require_admin
+      if logged_in? and !current_user.admin?
+        flash[:danger] = "Only admin users can perform that action"
         redirect_to root_path
       end
     end
