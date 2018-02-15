@@ -5,7 +5,10 @@
   font-weight: bold;
   a {
     color: $off-white !important;
-    
+    &:hover {
+      color: $dark-grey !important;
+      text-decoration: none;
+    }
   }
 }
 

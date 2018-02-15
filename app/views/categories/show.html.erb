@@ -2,4 +2,11 @@
   Category: <%= @category.name %>
 </h1>
 
+<div class='center'>
+  <%= link_to 'Edit Category',  
+        edit_category_path(@category), 
+        class: 'badge' if current_user.admin? 
+  %>
+</div>
+
 <%= render 'shared/articles', articles: @category_articles %>
