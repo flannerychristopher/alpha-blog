@@ -1,0 +1,4 @@
+one:
+  username: 'ringo'
+  email: 'ringo@example.com'
+  admin: true
