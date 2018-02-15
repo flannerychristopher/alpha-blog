@@ -20,14 +20,18 @@
             </div>
           </div>
 
+          <%= render article.categories if article.categories.any? %>
+
           <% if logged_in? && (current_user == article.user or current_user.admin?) %>
             <div class='article-actions'>
                 <%= link_to 'Edit this Article',   edit_article_path(article),
-                                      class: 'btn btn-sm btn-primary' %>
+                                      class: 'btn btn-sm btn-primary' 
+                %>
                 <%= link_to 'Delete this Article', article_path(article), 
                                       method: :delete, 
                                       data: { confirm: 'Are you sure?'},
-                                      class: 'btn btn-sm btn-danger' %>
+                                      class: 'btn btn-sm btn-danger' 
+                %>
             </div>
           <% end %>
         </div>

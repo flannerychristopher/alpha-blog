@@ -1,3 +1,14 @@
-// Place all the styles related to the Categories controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.badge {
+  background-color: $brand !important;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-weight: bold;
+  a {
+    color: $off-white !important;
+    
+  }
+}
+
+.input_checkbox input {
+  width: auto !important;
+}
